@@ -1,0 +1,289 @@
+/* CSS - stylesheet */
+
+html {
+  font-family: Helvetica;
+  color: white;
+  font-size: 18px;
+}
+
+.content-container {
+  width: 960px;
+  margin: 0 auto;
+  /* border: 1px solid green; */ /* to assist visualising layout */
+}
+
+/* content container changes to 100% of screen width for tablets and mobiles */
+@media only screen and (max-width: 1024px) {
+  .content-container {
+    width: 100%;
+  }
+}
+
+/* ----------------------------------------------------- */
+
+/* header section - this is made up of 3 banner sections*/
+/* logo banner */
+.logo-banner, .logo-banner .content-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: black;
+  text-transform: uppercase;
+}
+
+.logo-banner img {
+  height: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.logo-banner p {
+  padding: 0.66rem 0.5rem;
+}
+
+/* new arrival banner*/
+.new-arrival {
+  height: 25rem;
+  background-image: url(../images/moto.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 470px) {
+  .new-arrival {
+    height: 15rem;
+  }
+}
+
+/* new arrival banner content-container*/
+.new-arrival .content-container {
+  padding: 9rem 0 0 0;
+  height: 25rem;
+}
+
+@media only screen and (max-width: 470px) {
+  .new-arrival .content-container {
+    padding: 10rem 0 0 0;
+  }
+}
+
+.new-arrival .text {
+  position: relative;
+  height: auto;
+  width: 25rem;
+  background-image: none;
+  background-color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.new-arrival p {
+  font-size: 1rem;
+  padding: 2rem 0 0 3rem;
+}
+
+.new-arrival h1 {
+  font-size: 2rem;
+  padding: 0.25rem 0 2.3rem 3rem;
+}
+
+/* reduced banner font sizes for tablets */
+@media only screen and (max-width: 1024px) and (min-width: 470px) {
+  .new-arrival p {
+    font-size: 0.9rem;
+  }
+  .new-arrival h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .new-arrival p {
+    font-size: 0.77rem;
+    padding: 1rem 0 0 2rem;
+  }
+  .new-arrival h1 {
+    font-size: 1rem;
+    padding: 0.25rem 0 1rem 2rem;
+  }
+}
+
+/* navigation banner for desktop */
+@media only screen and (min-width: 1024px) {
+  .navigation, .navigation .content-container {
+    background-color: firebrick;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a, .navigation p {
+    text-decoration: none;
+    padding: 0.75rem 0;
+    color: white;
+  }
+
+  /* hide the mobile navigation banner when screen is desktop sized */
+  .mobile-navigation {
+    display: none;
+  }
+}
+
+/* navigation banner for tablets and mobiles */
+@media only screen and (max-width: 1024px) {
+  .mobile-navigation, .mobile-navigation .content-container {
+    background-color: firebrick;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a, .mobile-navigation p {
+    text-decoration: none;
+    padding: 0.75rem 0;
+    color: white;
+  }
+
+  /* hide the desktop navigation banner when screen is desktop sized */
+  .navigation {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------- */
+
+/* Main body */
+.main-body, .main-body .content-container {
+  background-color: white;
+}
+
+/* products section */
+.products {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 470px) {
+  .products {
+    justify-content: center;
+  }
+}
+
+/* This has been written like this to simplify media queries to remove the glasses
+product for screens with max-width: 1024px (see above).
+This would have been more concise to address all the products using a single ".product"
+class here if it weren't for the media query. */
+.product-pen, .product-watch, .product-glasses {
+  border: 4px solid black;
+  width: 30%;
+  margin: 3rem 0;
+  justify-content: center;
+}
+
+/* display two items at 47% width of screen for tablets */
+@media only screen and (max-width: 1024px) and (min-width: 470px) {
+  .product-glasses {
+    display: none;
+  }
+
+  .product-pen, .product-watch {
+    width: 47%;
+  }
+}
+
+/* display one item at 90% width of screen for mobiles */
+@media only screen and (max-width: 470px) {
+  .product-glasses, .product-watch {
+    display: none;
+  }
+
+  .product-pen {
+    width: 90%;
+  }
+}
+
+/* product images */
+/* Note: The pen and watch images have a different image aspect ratio to the
+          image of the glasses. Hence, the following two rules were developed to ensure that
+          the product in the three images were centred correctly.
+            * ".product img" - general rule
+            * ".product .glasses" - more specific rule to target the glasses image
+          */
+
+/* general rule */
+img.pen, img.watch {
+  height: 9rem;
+  width: auto;
+  padding: 2rem 0;
+  display: block;
+  margin: 0 auto;
+}
+
+/* specific rule  */
+img.glasses {
+  height: auto;
+  width: 9rem;
+  padding: 4.4rem 0;
+  display: block;
+  margin: 0 auto;
+}
+
+/* product headings */
+.product-heading {
+  background-color: black;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+/* details section */
+.details {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4rem;
+}
+
+@media only screen and (max-width: 470px) {
+  .details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.location, .hours {
+  width: 35%;
+}
+
+@media only screen and (max-width: 470px) {
+  .location, .hours {
+    width: 90%;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.location-heading, .hours-heading {
+  background-color: black;
+  padding: 1rem 2rem;
+}
+
+.location-details, .hours-details {
+  padding: 0.33rem 0;
+  color: grey;
+}
+
+/* ----------------------------------------------------- */
+
+/* footer */
+footer {
+  height: 5rem;
+  background-color: black;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 470px) {
+  footer {
+    text-align: center;
+  }
+}
